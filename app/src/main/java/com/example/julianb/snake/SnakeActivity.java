@@ -11,7 +11,6 @@ public class SnakeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         controller = new Controller(this);
 
         setContentView(controller);

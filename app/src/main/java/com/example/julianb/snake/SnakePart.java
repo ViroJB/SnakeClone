@@ -10,7 +10,7 @@ import android.graphics.drawable.shapes.RectShape;
  * Created by julianb on 23.03.17.
  */
 
-public class SnakeParts  {
+public class SnakePart {
 
     private int posX = 0; // aktuelle Koordinaten
     private int posY = 0;
@@ -21,7 +21,7 @@ public class SnakeParts  {
     public ShapeDrawable shape;
 
 
-    public SnakeParts (int x, int y) {
+    public SnakePart(int x, int y) {
         posX = x;
         posY = y;
         shape = new ShapeDrawable(new RectShape());
@@ -29,33 +29,27 @@ public class SnakeParts  {
         shape.setBounds(posX, posY, posX+30, posY+30);
     }
 
-
-
     public void setNewPosition(int x, int y) {
         oldX = posX;
         oldY = posY;
         posX = x;
         posY = y;
-    }
 
+        shape.setBounds(posX, posY, posX+30, posY+30);
+    }
 
 
     public int getOldX() {
         return oldX;
     }
 
-
-
     public int getOldY() {
         return oldY;
     }
 
-
-
     public int getPosX() {
         return posX;
     }
-
 
     public int getPosY() {
         return posY;
