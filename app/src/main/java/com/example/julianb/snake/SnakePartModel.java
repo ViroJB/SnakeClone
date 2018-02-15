@@ -1,32 +1,33 @@
 package com.example.julianb.snake;
 
-
-import android.graphics.Color;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 
-
 /**
- * Created by julianb on 23.03.17.
+ * Created by Viro on 02.02.2018.
  */
 
-public class SnakePart {
-
+public class SnakePartModel {
     private int posX = 0; // aktuelle Koordinaten
     private int posY = 0;
+
     private int oldX = 0; // alte Koordinaten
     private int oldY = 0;
 
+    private ShapeDrawable shape;
 
-    public ShapeDrawable shape;
+    SnakePartModel() {
+        posX = 1;
+        posY = 1;
 
+        shape = new ShapeDrawable(new RectShape());
+    }
 
-    public SnakePart(int x, int y) {
+    SnakePartModel(int x, int y) {
         posX = x;
         posY = y;
+
         shape = new ShapeDrawable(new RectShape());
-        shape.getPaint().setColor(Color.DKGRAY);
-        shape.setBounds(posX, posY, posX+30, posY+30);
     }
 
     public void setNewPosition(int x, int y) {
@@ -35,9 +36,8 @@ public class SnakePart {
         posX = x;
         posY = y;
 
-        shape.setBounds(posX, posY, posX+30, posY+30);
+        //System.out.println("OldX:" + oldX + ", OldY:" + oldY + "newX:" + posX + ", newY:" + posY);
     }
-
 
     public int getOldX() {
         return oldX;
@@ -55,4 +55,7 @@ public class SnakePart {
         return posY;
     }
 
+    public ShapeDrawable getShape() {
+        return shape;
+    }
 }

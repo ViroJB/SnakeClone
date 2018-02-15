@@ -5,14 +5,17 @@ import android.os.Bundle;
 
 public class SnakeActivity extends AppCompatActivity {
 
-    Controller controller;
+    GameController gameController;
+    GameView gameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        controller = new Controller(this);
+        this.gameView = new GameView(this);
+        setContentView(this.gameView);
 
-        setContentView(controller);
+        this.gameController = new GameController(this.gameView);
+        this.gameView.setSnake(gameController.getSnake());
     }
 }
