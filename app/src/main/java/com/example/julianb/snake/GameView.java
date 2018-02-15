@@ -36,6 +36,9 @@ public class GameView extends View implements View.OnTouchListener {
 
     private boolean isInitialized = false;
 
+    /*
+    TODO redo calculations for drawing ( width/100 and float or smth instead of int )
+     */
     public GameView(Context context) {
         super(context);
 

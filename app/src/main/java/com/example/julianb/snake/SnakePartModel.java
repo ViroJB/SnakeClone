@@ -35,8 +35,6 @@ public class SnakePartModel {
         oldY = posY;
         posX = x;
         posY = y;
-
-        //System.out.println("OldX:" + oldX + ", OldY:" + oldY + "newX:" + posX + ", newY:" + posY);
     }
 
     public int getOldX() {

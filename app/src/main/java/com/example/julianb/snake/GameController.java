@@ -51,10 +51,9 @@ public class GameController implements Runnable {
         }
     }
 
-    // 0 up, 1 right, 2 down, 3 left <-- clockwise
     private void moveSnake () {
         switch(this.snake.getDirection()) {
-            case SnakeModel.SNAKE_UP: // hoch
+            case SnakeModel.SNAKE_UP:
                 if(this.snake.getSnakeParts().get(0).getPosY()-1 < 1) {
                     System.out.println("drueber!!!");
                     this.isRunning = false;
@@ -66,7 +65,7 @@ public class GameController implements Runnable {
                         this.snake.getSnakeParts().get(0).getPosY()-1
                 );
                 break;
-            case SnakeModel.SNAKE_RIGHT: // rechts
+            case SnakeModel.SNAKE_RIGHT:
                 if(this.snake.getSnakeParts().get(0).getPosX()+1 > this.fieldsWidth) {
                     System.out.println("drueber!!!");
                     this.isRunning = false;
@@ -78,7 +77,7 @@ public class GameController implements Runnable {
                         this.snake.getSnakeParts().get(0).getPosY()
                 );
                 break;
-            case SnakeModel.SNAKE_DOWN: // unten
+            case SnakeModel.SNAKE_DOWN:
                 if(this.snake.getSnakeParts().get(0).getPosY()+1 > this.fieldsWidth) {
                     System.out.println("drueber!!!");
                     this.isRunning = false;
@@ -90,7 +89,7 @@ public class GameController implements Runnable {
                         this.snake.getSnakeParts().get(0).getPosY()+1
                 );
                 break;
-            case SnakeModel.SNAKE_LEFT: // links
+            case SnakeModel.SNAKE_LEFT:
                 if(this.snake.getSnakeParts().get(0).getPosX()-1 < 1) {
                     System.out.println("drueber!!!");
                     this.isRunning = false;
@@ -111,24 +110,17 @@ public class GameController implements Runnable {
             );
         }
 
+        // TODO eatable stuff, refactor
         if(this.snake.getSnakeParts().get(0).getPosX() == this.gameView.getEatablePosX()
                 && this.snake.getSnakeParts().get(0).getPosY() == this.gameView.getEatablePosY()) {
-            System.out.println("getroffen!!");
+
+            this.snake.addSnakePart(SnakeModel.SNAKE_ADD);
             this.gameView.setEatablePosX(this.gameView.getRnd().nextInt(this.gameView.getFieldsWidth()));
             this.gameView.setEatablePosY(this.gameView.getRnd().nextInt(this.gameView.getFieldsHeight()));
         }
     }
 
-    public boolean isRunning () {
-        return isRunning;
-    }
-
-    public void setRunning(boolean running) {
-        isRunning = running;
-    }
-
     public SnakeModel getSnake() {
         return snake;
     }
-
 }

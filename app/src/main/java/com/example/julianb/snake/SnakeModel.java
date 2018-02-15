@@ -14,6 +14,7 @@ public class SnakeModel {
     public static final int SNAKE_RIGHT = 1;
     public static final int SNAKE_DOWN = 2;
     public static final int SNAKE_LEFT = 3;
+    public static final int SNAKE_ADD = 4;
 
     private ArrayList<SnakePartModel> snakeParts;
 
@@ -32,30 +33,36 @@ public class SnakeModel {
 
     public void addSnakePart(int direction) {
         switch(direction) {
-            case SNAKE_UP: // hoch
+            case SNAKE_UP:
                     this.snakeParts.add(new SnakePartModel(
                             snakeParts.get(snakeParts.size()-1).getPosX(),
                             snakeParts.get(snakeParts.size()-1).getPosY()-1)
                     );
                     break;
-            case SNAKE_RIGHT: // rechts
+            case SNAKE_RIGHT:
                     this.snakeParts.add(new SnakePartModel(
                             snakeParts.get(snakeParts.size()-1).getPosX()+1,
                             snakeParts.get(snakeParts.size()-1).getPosY()
                     ));
                     break;
-            case SNAKE_DOWN: // unten
+            case SNAKE_DOWN:
                     this.snakeParts.add(new SnakePartModel(
                             snakeParts.get(snakeParts.size()-1).getPosX(),
                             snakeParts.get(snakeParts.size()-1).getPosY()+1
                     ));
                     break;
-            case SNAKE_LEFT: // links
+            case SNAKE_LEFT:
                     this.snakeParts.add(new SnakePartModel(
                             snakeParts.get(snakeParts.size()-1).getPosX()-1,
                             snakeParts.get(snakeParts.size()-1).getPosY()
                     ));
                     break;
+            case SNAKE_ADD:
+                this.snakeParts.add(new SnakePartModel(
+                        snakeParts.get(snakeParts.size()-1).getPosX(),
+                        snakeParts.get(snakeParts.size()-1).getPosY()
+                ));
+                break;
         }
     }
 
