@@ -165,22 +165,30 @@ public class GameView extends View implements View.OnTouchListener {
     public void checkTouchPosition(int x, int y) {
         if(x >= this.buttonCoordinates[0][0] && x <= this.buttonCoordinates[0][2]
                 && y >= this.buttonCoordinates[0][1] && y <= this.buttonCoordinates[0][3]) {
-            this.snake.setDirection(SnakeModel.SNAKE_UP);
+            if(this.snake.getDirection() != SnakeModel.SNAKE_UP && this.snake.getDirection() != SnakeModel.SNAKE_DOWN) {
+                this.snake.setDirection(SnakeModel.SNAKE_UP);
+            }
             System.out.println("button 1 pressed.");
         }
         if(x >= this.buttonCoordinates[1][0] && x <= this.buttonCoordinates[1][2]
                 && y >= this.buttonCoordinates[1][1] && y <= this.buttonCoordinates[1][3]) {
-            this.snake.setDirection(SnakeModel.SNAKE_DOWN);
+            if(this.snake.getDirection() != SnakeModel.SNAKE_DOWN && this.snake.getDirection() != SnakeModel.SNAKE_UP) {
+                this.snake.setDirection(SnakeModel.SNAKE_DOWN);
+            }
             System.out.println("button 2 pressed.");
         }
         if(x >= this.buttonCoordinates[2][0] && x <= this.buttonCoordinates[2][2]
                 && y >= this.buttonCoordinates[2][1] && y <= this.buttonCoordinates[2][3]) {
-            this.snake.setDirection(SnakeModel.SNAKE_LEFT);
+            if(this.snake.getDirection() != SnakeModel.SNAKE_LEFT && this.snake.getDirection() != SnakeModel.SNAKE_RIGHT) {
+                this.snake.setDirection(SnakeModel.SNAKE_LEFT);
+            }
             System.out.println("button 3 pressed.");
         }
         if(x >= this.buttonCoordinates[3][0] && x <= this.buttonCoordinates[3][2]
                 && y >= this.buttonCoordinates[3][1] && y <= this.buttonCoordinates[3][3]) {
-            this.snake.setDirection(SnakeModel.SNAKE_RIGHT);
+            if(this.snake.getDirection() != SnakeModel.SNAKE_RIGHT && this.snake.getDirection() != SnakeModel.SNAKE_LEFT) {
+                this.snake.setDirection(SnakeModel.SNAKE_RIGHT);
+            }
             System.out.println("button 4 pressed.");
         }
     }
